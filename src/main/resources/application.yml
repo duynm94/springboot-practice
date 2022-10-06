@@ -1,0 +1,55 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/test
+    password: ''
+  jpa:
+    hibernate:
+      ddl-auto: update
+  application:
+    name: demoservice
+  profiles:
+    active: "dev"
+server:
+  port: 8082
+
+# Mac dinh se ko in log debug, khi co config: com.nmd.example: DEBUG se in 
+# Spring boot ho tro define format log trong file xml: resource/logback.xml, neu co file logback.xml thi se nhan config tai day
+logging:
+  #path: /var/tmp/log/
+  file:
+    name: C:/Users/GDCV/Documents/Spring/var/tmp/log/mylog.log
+  pattern:
+         console: "%d %-5level%clr(%5p) %logger [test format log] : %msg%n"
+         file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: ERROR
+    #com.nmd.example: DEBUG
+    org.hibernate: ERROR
+# Khai bao cac config moi truong dev trong cung 1 file or cac file khac, neu cung 1 file (ko co file khac) se nhan config trong file, neu co trong cung 1 file va ca file khac thi nhan file khac theo profile active
+# Trong profile khac thi khong can thuoc tinh profile:actives:
+# Neu khong tim thay config trong cac file dev, prod, .. thi se nhan config trong file application.yaml, neu khong ton tai trong tat ca se bao loi
+---
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/test
+    password: ''
+  jpa:
+    hibernate:
+      ddl-auto: update
+  application:
+      name: demoservice
+server:
+   port: 9090
+
+---
+spring: 
+   profiles: prod
+   application:
+      name: demoservice
+server: 
+   port: 4431
