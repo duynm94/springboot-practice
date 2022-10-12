@@ -16,4 +16,6 @@ public interface TestService {
 	
 	void deleteById(Integer id);
 	
+	boolean partialUpdate(Integer id, String key, String value) throws Exception;
+	
 }

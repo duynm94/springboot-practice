@@ -71,6 +71,7 @@ public class TestServiceImpl implements TestService {
 			TestDTO testDTO = new TestDTO();
 			testDTO.setId(entity.getId());
 			testDTO.setMsg(entity.getMsg());
+			testDTO.setDescription(entity.getDescription());
 			result.add(testDTO);
 		}
 		return result;
@@ -80,6 +81,24 @@ public class TestServiceImpl implements TestService {
 	@Transactional(rollbackFor = Exception.class)
 	public void deleteById(Integer id) {
 		testRepository.deleteById(id);
+	}
+
+	@Override
+	public boolean partialUpdate(Integer id, String key, String value) throws Exception {
+		Optional<TestEntity> testEntityOpt = testRepository.findById(id);
+		if (testEntityOpt.isPresent()) {
+			TestEntity entity = testEntityOpt.get();
+			if ("description".equalsIgnoreCase(key)) {
+				entity.setDescription(value);
+			}
+			if ("msg".equalsIgnoreCase(key)) {
+				entity.setMsg(value);
+			}
+			testRepository.save(entity);
+			return true;
+		} else {
+			throw new Exception("RESOURCE_NOT_FOUND");
+		}
 	}
 
 }
