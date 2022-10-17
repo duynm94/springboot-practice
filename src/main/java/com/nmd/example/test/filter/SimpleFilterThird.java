@@ -22,6 +22,7 @@ public class SimpleFilterThird implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		log.info("SimpleFilterThird");
+		chain.doFilter(request, response);
 	}
 	
 	@Override
