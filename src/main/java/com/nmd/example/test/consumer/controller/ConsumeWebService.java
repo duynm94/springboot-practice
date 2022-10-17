@@ -34,6 +34,16 @@ public class ConsumeWebService {
 		return restTemplate.exchange("https://jsonplaceholder.typicode.com/todos", HttpMethod.GET, entity, String.class).getBody();
 	}
 	
+	/*@GetMapping("/template/user/{id}")
+	public UserDTO getUser(@PathVariable("id") String id) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		HttpEntity<String> entity = new HttpEntity<>(headers);
+
+		UserDTO userDTO = restTemplate.getForObject("https://jsonplaceholder.typicode.com/todos/" + id, UserDTO.class);
+		return userDTO;
+	}*/
+	
 	@GetMapping("/template/user/{id}")
 	public String getUser(@PathVariable("id") String id) {
 		HttpHeaders headers = new HttpHeaders();
