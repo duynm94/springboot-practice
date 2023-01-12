@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset = "ISO-8859-1" />
+      <link th:href="@{/css/style.css}" rel="stylesheet" />
+      <title>Internationalization</title>
+   </head>
+   <body>
+      <h4>Internationalization</h4>
+       Language :
+	  <a href="?language=en">English</a>|
+	  <a href="?language=vi_VN">Viet Nam</a>|
+   </body>
+   
+   <p th:text="${message}">User test</p>
+   <p th:text="#{hello}"></p>
+</html>
