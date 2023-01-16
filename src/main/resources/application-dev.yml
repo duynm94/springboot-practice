@@ -13,3 +13,7 @@ spring:
     cache: false
 server:
   port: 9091
+  #ssl:
+    #key-store: C:\Users\GDCV\Documents\Spring\workspace\create-p12\cert.p12
+    #key-store-password: Duy12345.
+    #keyStoreType: PKCS12

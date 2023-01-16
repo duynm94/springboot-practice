@@ -13,6 +13,10 @@ spring:
     active: "dev"
 server:
   port: 8082
+  #ssl:
+    #key-store:classpath:cert.p12
+    #key-store-password:Duy12345.
+    #keyStoreType:PKCS12
 
 # Mac dinh se ko in log debug, khi co config: com.nmd.example: DEBUG se in 
 # Spring boot ho tro define format log trong file xml: resource/logback.xml, neu co file logback.xml thi se nhan config tai day

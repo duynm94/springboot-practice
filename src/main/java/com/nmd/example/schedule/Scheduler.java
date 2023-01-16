@@ -30,7 +30,7 @@ public class Scheduler {
 	}
 	
 	//Fixed Delay scheduler is used to execute the tasks at a specific time. It should wait for the previous task completion. The values should be in milliseconds.
-	@Scheduled(fixedDelay = 1000, initialDelay = 3000)
+	//@Scheduled(fixedDelay = 1000, initialDelay = 3000)
 	public void fixedDelaySch() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		Date now = new Date();
